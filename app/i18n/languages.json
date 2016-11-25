@@ -1,0 +1,9 @@
+[
+    { "value": "en", "iso": "gb", "name": "English", "englishName": "English" },
+    { "value": "es", "iso": "es", "name": "Español", "englishName": "Spanish" },
+    { "value": "fr", "iso": "fr", "name": "Français", "englishName": "French" },
+    { "value": "hu", "iso": "hu", "name": "Magyar", "englishName": "Hungarian" },
+    { "value": "nl", "iso": "nl", "name": "Nederlands", "englishName": "Dutch" },
+    { "value": "ptbr", "iso": "br", "name": "Português Brasileiro", "englishName": "Brazilian Portuguese" },
+    { "value": "ru", "iso": "ru", "name": "Русский", "englishName": "Russian" }
+]

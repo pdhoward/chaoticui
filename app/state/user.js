@@ -1,4 +1,7 @@
-import { createAction } from 'redux-actions';
+
+
+
+import { createAction }       from 'redux-actions';
 
 export const AUTO_LOGIN = 'retrospected/user/login/auto';
 export const LOGIN = 'retrospected/user/login';

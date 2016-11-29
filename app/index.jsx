@@ -1,10 +1,10 @@
 /* eslint import/no-unresolved:0 global-require:0 */
 import 'babel-polyfill';
-import App from './app';
-import { render } from 'react-dom';
-import React from 'react';
+import App                      from './app';
+import { render }               from 'react-dom';
+import React                    from 'react';
 import 'react-toolbox/lib/commons';
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer }         from 'react-hot-loader';
 
 const rootElement = document.getElementById('content');
 

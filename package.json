@@ -10,8 +10,7 @@
   "scripts": {
     "startx": "cross-env NODE_ENV=development PORT=3000 nodemon ./server",
     "starty": "cross-env NODE_ENV=development PORT=8080 nodemon ./server",
-    "build": "cross-env NODE_ENV=development webpack -p --config webpack.config.js --progress --colors",
-    "lint": "eslint --ext .js --ext .jsx ."
+    "build": "cross-env NODE_ENV=development webpack -p --config webpack.config.js --progress --colors"    
   },
   "dependencies": {
     "autoprefixer": "6.3.7",

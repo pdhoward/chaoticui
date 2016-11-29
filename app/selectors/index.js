@@ -1,7 +1,7 @@
-import { createSelector } from 'reselect';
-import find from 'lodash/find';
-import sortBy from 'lodash/sortBy';
-import languages from '../i18n/languages.json';
+import { createSelector }               from 'reselect';
+import find                             from 'lodash/find';
+import sortBy                           from 'lodash/sortBy';
+import languages                        from '../i18n/languages.json';
 
 // Utility functions
 const sortByVotes = posts => sortBy(posts, p => -(p.likes.length - p.dislikes.length));

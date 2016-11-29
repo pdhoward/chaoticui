@@ -1,12 +1,14 @@
-import React, { PropTypes, Component } from 'react';
-import noop from 'lodash/noop';
-import flow from 'lodash/flow';
-import Button from 'react-toolbox/lib/button';
-import EnterInput from './EnterInput';
-import translate from '../i18n/Translate';
-import LanguagePicker from './LanguagePicker';
-import icons from '../constants/icons';
-import style from './Login.scss';
+
+
+import React, { PropTypes, Component }      from 'react';
+import noop                                 from 'lodash/noop';
+import flow                                 from 'lodash/flow';
+import Button                               from 'react-toolbox/lib/button';
+import EnterInput                           from './EnterInput';
+import translate                            from '../i18n/Translate';
+import LanguagePicker                       from './LanguagePicker';
+import icons                                from '../constants/icons';
+import style                                from './Login.scss';
 
 class Login extends Component {
     render() {

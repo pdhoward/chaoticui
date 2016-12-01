@@ -3,7 +3,7 @@ import githubLogo from '../images/github.png';
 
 export default () => (
     <a
-      href="https://github.com/antoinejaussoin/retro-board"
+      href="https://github.com/pdhoward/xio"
       style={{ position: 'absolute', bottom: 10, right: 10 }}
       target="_blank"
     >

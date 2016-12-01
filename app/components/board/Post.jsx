@@ -1,87 +1,117 @@
-import React, { PropTypes } from 'react';
-import noop from 'lodash/noop';
-import { Card, CardText, CardActions } from 'react-toolbox/lib/card';
-import { default as Button } from 'react-toolbox/lib/button';
-import EditableLabel from '../EditableLabel';
-import classNames from 'classnames';
-import style from './Post.scss';
-import icons from '../../constants/icons';
-import translate from '../../i18n/Translate';
 
-const canVote = (post, currentUser) =>
-    post.likes.indexOf(currentUser) === -1 &&
-    post.dislikes.indexOf(currentUser) === -1 &&
-    currentUser !== post.user;
+/*
+post component onSubmit ={}
 
-const canEdit = (post, currentUser) => currentUser === post.user;
+this.handleSubmit.bind(this)
 
-const renderDelete = (post, currentUser, strings, onDelete) => {
-    if (currentUser === post.user) {
-        return (
-            <Button
-              icon={ icons.delete_forever }
-              label={ strings.deleteButton }
-              raised
-              className={ style.deleteButton }
-              onClick={ () => onDelete(post) }
-            />
-        );
-    }
+------------------
 
-    return null;
-};
+input component <form
 
-const renderButton = (post, currentUser, name, icon, className, onClick) => {
-    const canUserVote = canVote(post, currentUser);
-    const votes = post[name].length;
-    const label = votes ? votes.toString() : '-';
-    const classNameFinal = classNames(className, canUserVote ? null : style.disabled);
-    const visible = canUserVote || votes > 0;
+onSubmit={this.props.onSubmit}
 
-    if (!visible) {
-        return null;
-    }
-    return (
-        <Button
-          icon={icon}
-          label={label}
-          onClick={onClick}
-          raised={canUserVote}
-          className={classNameFinal}
-          disabled={!canVote}
-        />
-    );
-};
+*/
+import React, { PropTypes } 		from 'react';
+import noop 										from 'lodash/noop';
+import classNames 							from 'classnames';
+import translate 								from '../../i18n/Translate';
+import style 										from './Post.scss';
+
+
+const logData = (args) => {
+	console.log("--------------------")
+	console.log(JSON.stringify(args))
+}
+
+const renderState = () => {
+	return {
+		recipient: {
+			id: 2,
+			firstname: 'Patrick',
+			surname: 'Howard',
+			email: 'patrick.howard@xiollc.com'
+		},
+		sender: {
+			id: 1
+		},
+		messages: []
+	}
+}
+
+const handleSubmit = (event) => {
+	var value = $('.messageInput').val();
+	console.log(value);
+
+	var message = {
+		sender: 1,
+		message: value
+	};
+
+	var messages = this.state.messages;
+	messages.push(message);
+
+	this.setState({ messages: messages });
+	this.scrollWindow();
+	$('.messageInput').val("");
+	event.preventDefault();
+}
+
+const scrollWindow = () => {
+		var windowHeight = $('.Messages').height();
+		$(".container").animate({scrollTop : ($(".container")[0].scrollHeight)}, 500);
+}
+
+////////////////
+// COMPONENTS //
+////////////////
+
+
+// Post Container
 
 const Post = ({ post, currentUser, onEdit, onLike, onUnlike, onDelete, strings }) => (
-    <div className={classNames(style.post, style[post.postType])}>
-        <Card raised className={style.card}>
-            <CardText>
-                <EditableLabel
-                  value={post.content}
-                  readOnly={!canEdit(post, currentUser)}
-                  placeholder={strings.noContent}
-                  onChange={v => onEdit(post, v)}
-                />
-            </CardText>
-            <CardActions>
-                <div className={style.actions}>
-                    { renderButton(post, currentUser,
-                        'likes',
-                        icons.thumb_up,
-                        style.like,
-                        () => onLike(post)) }
-                    { renderButton(post, currentUser,
-                        'dislikes',
-                        icons.thumb_down,
-                        style.dislike,
-                        () => onUnlike(post)) }
-                    { renderDelete(post, currentUser, strings, onDelete) }
-                </div>
-            </CardActions>
-        </Card>
-    </div>
-);
+
+			<div className={classNames(style.post)}>
+				<Conversation messages={post.content} recipient={post.user} />
+				<Input messages={"placeholder"} />
+			</div>
+)
+
+// Conversation
+
+const Conversation = ({ post, recipient }) => (
+
+			<div className={classNames(style.Conversation)}>
+				<Header name={recipient} />
+				<div className="container">
+					<Messages messages={post} />
+				</div>
+			</div>
+
+)
+
+
+const Header = ({ name }) => (
+			<header>
+				<div className={classNames(style.header)}> {name}</div>
+			</header>
+)
+
+
+const Messages = ({ post }) => (
+		<div className='Messages'>
+				{post}
+		</div>
+
+)
+
+const Input = ({ messages }) => (
+			<form className={classNames(style.Input)}>
+				<input className="messageInput" name="message" type="text" placeholder="Enter your message..." />
+				<button>
+					<i className="fa fa-send"></i>
+				</button>
+			</form>
+	)
 
 Post.propTypes = {
     post: PropTypes.object.isRequired,

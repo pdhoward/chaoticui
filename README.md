@@ -17,14 +17,26 @@ It features the following technologies:
 * [MongoDB](https://www.mongodb.org/) (optional), defaults to [NeDB](https://github.com/louischatriot/nedb) (in-process)
 
 
+## Development
 
-## How to run
+Clone this repository
+npm i to install the dependencies (Node 4+, NPM 3+)
+Open another terminal (you need two of those)
+npm run start-server on the first terminal to start the server bit
+npm run start-ui on the second terminal, to run live webpack with hot-reload
+Open your browser on http://localhost:8081
+
+also test the program by executing (after running npm build)
+1. npm run startx to open an app on port 3000,
+2. and npm run starty for app on post 8080
+The apps on different servers will communicate through redis, and share all text messages among users
+
+## Production
 
 * Clone this repository
 * `npm i` to install the dependencies (Node 6+, NPM 4+)
 * `npm run build` to build everything (client and server)
 * `npm start` to run the server on port 8080
 * Open your browser on [http://localhost:8080](http://localhost:8080)
-
 
 ## How to enable SocketIO anti-spam

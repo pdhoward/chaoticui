@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import flow from 'lodash/flow';
 import { connect } from 'react-redux';
-import PostBoard from './PostBoard';
+import PostChat from './PostChat';
 import SummaryBoard from './SummaryBoard';
 import SessionName from './SessionName';
 import { getSummaryMode } from '../../selectors';
@@ -15,7 +15,7 @@ const Board = ({ summaryMode }) => (
         <div style={ { width: '100%', textAlign: 'center' } }>
             <SessionName />
         </div>
-        { summaryMode ? <SummaryBoard /> : <PostBoard /> }
+        { summaryMode ? <SummaryBoard /> : <PostChat /> }
     </div>
 );
 

@@ -9,14 +9,17 @@ const momentFilter = languages.map(lang => lang.iso).join('|');
 module.exports = {
     content: __dirname,
     entry: [
+        'react-hot-loader/patch',
         './app/index.jsx'
     ],
     output: {
         path: staticFolder,
-        publicPath: '/assets/',
+        publicPath: 'http://localhost:8080/assets/',
+//         CHANGE FOR PROD
+//        publicPath: '/assets/',
         filename: 'app.js'
     },
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     resolve: {
         extensions: ['', '.js', '.jsx', '.scss'],
         modulesDirectories: [
@@ -35,9 +38,12 @@ module.exports = {
             { test: /\.png$/, loader: 'url?limit=10000&mimetype=image/png' },
             { test: /\.jpg$/, loader: 'url?limit=10000&mimetype=image/jpeg' },
             { test: /\.json$/, loader: 'json-loader' },
-            { test: /(\.scss)$/, loader: ExtractTextPlugin.extract('style',
-                'css?sourceMap&modules&importLoaders=1&localIdentName' +
-                '=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox') }
+            { test: /(\.scss)$/, loader: 'style!css?sourceMap&modules&importLoaders=1&' +
+                'localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox' }
+//              CHANGE FOR PROD
+//            { test: /(\.scss)$/, loader: ExtractTextPlugin.extract('style',
+//                'css?sourceMap&modules&importLoaders=1&localIdentName' +
+//                '=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox') }
         ]
     },
     toolbox: {
@@ -47,6 +53,7 @@ module.exports = {
     plugins: [
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, new RegExp(momentFilter)),
         new ExtractTextPlugin('style.css', { allChunks: true }),
+        new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
             __DEVELOPMENT__: true,

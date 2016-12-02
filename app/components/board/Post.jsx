@@ -16,6 +16,7 @@ import noop 										from 'lodash/noop';
 import classNames 							from 'classnames';
 import translate 								from '../../i18n/Translate';
 import style 										from './Post.scss';
+import icons 										from '../../constants/icons';
 
 
 const logData = (args) => {
@@ -68,22 +69,25 @@ const scrollWindow = () => {
 
 // Post Container
 
-const Post = ({ post, currentUser, onEdit, onLike, onUnlike, onDelete, strings }) => (
+const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
+                      onLike, onUnlike, onEdit }) => (
 
 			<div className={classNames(style.post)}>
-				<Conversation messages={post.content} recipient={post.user} />
+				<Header name={"Just me"} />
+				<Conversation messages={"Spoofing"} />
 				<Input messages={"placeholder"} />
 			</div>
 )
 
 // Conversation
 
-const Conversation = ({ post, recipient }) => (
+const Conversation = ({ messages }) => (
 
-			<div className={classNames(style.Conversation)}>
-				<Header name={recipient} />
-				<div className="container">
-					<Messages messages={post} />
+			<div className={classNames(style.conversation)}>
+				<div className={classNames(style.container)}>
+					<div className={classNames(style.Message)}>
+						{messages}
+					</div>
 				</div>
 			</div>
 
@@ -91,9 +95,9 @@ const Conversation = ({ post, recipient }) => (
 
 
 const Header = ({ name }) => (
-			<header>
-				<div className={classNames(style.header)}> {name}</div>
-			</header>
+			<div className={classNames(style.header)}>
+				<div> {name} </div>
+			</div>
 )
 
 
@@ -105,35 +109,40 @@ const Messages = ({ post }) => (
 )
 
 const Input = ({ messages }) => (
+		<div >
 			<form className={classNames(style.Input)}>
 				<input className="messageInput" name="message" type="text" placeholder="Enter your message..." />
 				<button>
 					<i className="fa fa-send"></i>
 				</button>
 			</form>
+		</div>
 	)
 
 Post.propTypes = {
-    post: PropTypes.object.isRequired,
-    currentUser: PropTypes.string.isRequired,
-    onDelete: PropTypes.func,
-    onLike: PropTypes.func,
-    onUnlike: PropTypes.func,
-    onEdit: PropTypes.func,
-    strings: PropTypes.object
-};
+	    currentUser: PropTypes.string.isRequired,
+	    posts: PropTypes.array.isRequired,
+	    type: PropTypes.string.isRequired,
+	    icon: PropTypes.string,
+	    placeholder: PropTypes.string.isRequired,
+	    onAdd: PropTypes.func,
+	    onDelete: PropTypes.func,
+	    onLike: PropTypes.func,
+	    onUnlike: PropTypes.func,
+	    onEdit: PropTypes.func
+	};
 
 Post.defaultProps = {
-    post: null,
-    currentUser: null,
-    onDelete: noop,
-    onLike: noop,
-    onUnlike: noop,
-    onEdit: noop,
-    strings: {
-        deleteButton: 'Delete',
-        noContent: '(This post has no content)'
-    }
-};
+	    currentUser: null,
+	    posts: [],
+	    type: 'well',
+	    icon: icons.add_circle,
+	    placeholder: 'New Comment',
+	    onAdd: noop,
+	    onDelete: noop,
+	    onLike: noop,
+	    onUnlike: noop,
+	    onEdit: noop
+	};
 
 export default translate('Post')(Post);

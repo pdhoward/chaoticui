@@ -31,6 +31,7 @@ $grey: #C1CFDA;
 }
 
 div.post {
+	margin:40px;
 	height: 520px;
 	width: 320px;
 	box-shadow: 0 10px 20px rgba($black, .075);
@@ -83,20 +84,20 @@ div.post {
 	}
 }
 
-header {
+div.header {
 	height: 44px;
-	background: rgba(white, .9);
+	background: darken($grey, 40);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 14px;
 	font-weight: 500;
 	border-bottom: 1px solid #EEE;
-	color: $black;
+	color: $white;
 }
 
 // Conversation
-.Conversation {
+div.conversation {
 
 	.container {
 		display: flex;

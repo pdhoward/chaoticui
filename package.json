@@ -8,9 +8,11 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
+    "start-ui": "webpack-dev-server --progress --inline --hot",
+    "start-server": "nodemon ./server",
     "startx": "cross-env NODE_ENV=development PORT=3000 nodemon ./server",
     "starty": "cross-env NODE_ENV=development PORT=8080 nodemon ./server",
-    "build": "cross-env NODE_ENV=development webpack -p --config webpack.config.js --progress --colors"    
+    "build": "cross-env NODE_ENV=development webpack -p --config webpack.config.js --progress --colors"
   },
   "dependencies": {
     "autoprefixer": "6.3.7",

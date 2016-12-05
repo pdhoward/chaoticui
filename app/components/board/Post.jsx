@@ -1,16 +1,4 @@
 
-/*
-post component onSubmit ={}
-
-this.handleSubmit.bind(this)
-
-------------------
-
-input component <form
-
-onSubmit={this.props.onSubmit}
-
-*/
 import React, { PropTypes } 		from 'react';
 import noop 										from 'lodash/noop';
 import classNames 							from 'classnames';
@@ -66,33 +54,22 @@ const scrollWindow = () => {
 // COMPONENTS //
 ////////////////
 
-
-// Post Container
+// Conversation
 
 const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
                       onLike, onUnlike, onEdit }) => (
 
-			<div className={classNames(style.post)}>
-				<Header name={"Just me"} />
-				<Conversation messages={"Spoofing"} />
-				<Input messages={"placeholder"} />
-			</div>
-)
-
-// Conversation
-
-const Conversation = ({ messages }) => (
-
-			<div className={classNames(style.conversation)}>
+			<div className={classNames(style.Conversation)}>
+				<div className={classNames(style.header)}>
+					<Header name={"Just me"} />
+				</div>
 				<div className={classNames(style.container)}>
-					<div className={classNames(style.Message)}>
-						{messages}
-					</div>
+					<Messages messages={["message1", "message2", "message3", "message4",]} />
 				</div>
 			</div>
 
-)
 
+)
 
 const Header = ({ name }) => (
 			<div className={classNames(style.header)}>
@@ -100,24 +77,40 @@ const Header = ({ name }) => (
 			</div>
 )
 
+class Messages extends React.Component {
 
-const Messages = ({ post }) => (
-		<div className='Messages'>
-				{post}
-		</div>
+	render() {
 
-)
+		var messages = this.props.messages.map(function(message, i) {
+			return <Message message={message.message} sender={1} />;
+		});
 
-const Input = ({ messages }) => (
-		<div >
-			<form className={classNames(style.Input)}>
-				<input className="messageInput" name="message" type="text" placeholder="Enter your message..." />
-				<button>
-					<i className="fa fa-send"></i>
-				</button>
-			</form>
-		</div>
-	)
+		return (
+			<div className='Messages'>
+				{messages}
+			</div>
+		);
+	}
+
+}
+
+class Message extends React.Component {
+
+	render() {
+		if(this.props.sender === 1) {
+			var classNames = "Message Message--you";
+		} else {
+			var classNames = "Message Message--them";
+		}
+
+		return (
+			<div className={classNames}>
+				<span>{this.props.message}</span>
+			</div>
+		);
+	}
+
+}
 
 Post.propTypes = {
 	    currentUser: PropTypes.string.isRequired,

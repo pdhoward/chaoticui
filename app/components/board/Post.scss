@@ -8,12 +8,14 @@ $black: #131B23;
 $blue: #42CAFD;
 $grey: #C1CFDA;
 
+
 // Mixins
 @mixin mq($width) {
 	@media screen and (max-width: $width) {
 		@content;
 	}
 }
+
 
 // Styles
 #app {
@@ -30,8 +32,17 @@ $grey: #C1CFDA;
 	height: 100vh;
 }
 
-div.post {
-	margin:40px;
+
+div.board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.Post {
+	margin: 0 auto;
 	height: 520px;
 	width: 320px;
 	box-shadow: 0 10px 20px rgba($black, .075);
@@ -84,7 +95,7 @@ div.post {
 	}
 }
 
-div.header {
+.header {
 	height: 44px;
 	background: darken($grey, 40);
 	display: flex;
@@ -97,7 +108,7 @@ div.header {
 }
 
 // Conversation
-div.conversation {
+Conversation {
 
 	.container {
 		display: flex;

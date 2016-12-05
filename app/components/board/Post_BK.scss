@@ -1,57 +1,171 @@
-div.post {
-    margin:10px;
+// Typography
+//@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
 
-    flex: 1 1 auto;
-    transition: width 0.7s ease-out;
+// Colors
+$purple: #340068;
+$white: #E9F1F7;
+$black: #131B23;
+$blue: #42CAFD;
+$grey: #C1CFDA;
 
-    &.well {
-        [data-react-toolbox="card"] {
-            background-color: $color-well;
-        }
-    }
+// Mixins
+@mixin mq($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
 
-    &.notWell {
-        [data-react-toolbox="card"] {
-            background-color: $color-notWell;
-        }
-    }
+// Styles
+#app {
+	background: url(http://static1.squarespace.com/static/55acc005e4b098e615cd80e2/5777d3433e00be9cc0d8e3f6/5794e11ee4fcb508439092c7/1469374779773/IMG_3487.jpg?format=2500w);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	font-family: 'Open Sans', sans-serif;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
 
-    &.ideas {
-        [data-react-toolbox="card"] {
-            background-color: $color-ideas;
-        }
-    }
-    .card {
-        width: 350px;
-        position: relative;
+/*
+div.board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 
-        @media screen and (max-width: $xsmall) {
-            width: 100%;
-        }
+}
+*/
+.Post {
+	margin: 0 auto;
+	height: 520px;
+	width: 320px;
+	box-shadow: 0 10px 20px rgba($black, .075);
 
-        div.actions {
-            button.like {
-                background-color: $color-like;
-                color: white;
-            }
+	@include mq(600px) {
+		width: 100vw;
+		height: 100vh;
+	}
 
-            button.like.disabled {
-                background-color: $color-like-secondary;
-            }
+	.Conversation {
+		height: calc(100% - 60px);
+		width: 100%;
+	}
 
-            button.dislike {
-                background-color: $color-dislike;
-                color: white;
-            }
-            button.dislike.disabled {
-                background-color: $color-dislike-secondary;
-            }
-            button.deleteButton {
-                background-color: $palette-red-300;
-                color: white;
-            }
-        }
-    }
+	.Input {
+		height: 60px;
+		background: rgba($grey, .8);
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		padding: 10px;
 
+		input {
+			flex: 1 0 auto;
+			border-radius: 44px;
+			height: 40px;
+			box-sizing: border-box;
+			border: 0;
+			padding: 0 20px;
+			color: $black;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			outline: none;
+		}
 
+		button {
+			background: darken($grey, 40);
+			height: 44px;
+			color: white;
+			font-size: 18px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 44px;
+			border: 0;
+			border-radius: 50px;
+			margin-left: 10px;
+		}
+	}
+}
+
+header {
+	height: 44px;
+	background: darken($grey, 40);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	font-weight: 500;
+	border-bottom: 1px solid #EEE;
+	color: $white;
+}
+
+// Conversation
+Conversation {
+
+	.container {
+		display: flex;
+		height: calc(100% - 45px);
+		overflow-y: auto;
+		box-sizing: border-box;
+		background: rgba($white, .95);
+		padding: 10px 0;
+
+		@include mq(640px) {
+			background: rgba($white, .1);
+		}
+
+		.Messages {
+			width: 100%;
+
+			.Message {
+				padding: 5px 20px;
+
+				&:last-child {
+					padding-bottom: 20px;
+				}
+
+				span {
+					padding: 10px;
+					box-sizing: border-box;
+					font-size: 12px;
+					display: inline-block;
+					font-weight: 600;
+					max-width: 80%;
+					line-height: 1.4;
+					border-radius: 3px;
+					overflow-wrap: break-word;
+  				word-wrap: break-word;
+					word-break: break-word;
+					-ms-hyphens: auto;
+					-moz-hyphens: auto;
+					-webkit-hyphens: auto;
+					hyphens: auto;
+				}
+
+				&--them {
+					span {
+						background: white;
+						box-shadow: 0 5px 10px rgba($black, .05);
+						color: rgba($black, .9);
+					}
+				}
+
+				&--you {
+					justify-content: flex-end;
+					display: flex;
+
+					span {
+						background: darken($blue, 45);
+						color: white;
+					}
+				}
+			}
+		}
+	}
 }

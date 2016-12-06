@@ -32,15 +32,6 @@ $grey: #C1CFDA;
 	height: 100vh;
 }
 
-
-div.board {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-
-}
-
 .Post {
 	margin: 0 auto;
 	height: 520px;
@@ -55,43 +46,6 @@ div.board {
 	.Conversation {
 		height: calc(100% - 60px);
 		width: 100%;
-	}
-
-	.Input {
-		height: 60px;
-		background: rgba($grey, .8);
-		display: flex;
-		align-items: center;
-		box-sizing: border-box;
-		padding: 10px;
-
-		input {
-			flex: 1 0 auto;
-			border-radius: 44px;
-			height: 40px;
-			box-sizing: border-box;
-			border: 0;
-			padding: 0 20px;
-			color: $black;
-			font-family: 'Open Sans', sans-serif;
-			font-size: 14px;
-			font-weight: 400;
-			outline: none;
-		}
-
-		button {
-			background: darken($grey, 40);
-			height: 44px;
-			color: white;
-			font-size: 18px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 44px;
-			border: 0;
-			border-radius: 50px;
-			margin-left: 10px;
-		}
 	}
 }
 
@@ -108,7 +62,7 @@ div.board {
 }
 
 // Conversation
-Conversation {
+.Conversation {
 
 	.container {
 		display: flex;
@@ -150,7 +104,7 @@ Conversation {
 					hyphens: auto;
 				}
 
-				&--them {
+				&.them {
 					span {
 						background: white;
 						box-shadow: 0 5px 10px rgba($black, .05);
@@ -158,7 +112,7 @@ Conversation {
 					}
 				}
 
-				&--you {
+				&.you {
 					justify-content: flex-end;
 					display: flex;
 

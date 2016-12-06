@@ -61,10 +61,10 @@ const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
 
 			<div className={classNames(style.Conversation)}>
 				<div className={classNames(style.header)}>
-					<Header name={"Just me"} />
+					<Header name={currentUser} />
 				</div>
 				<div className={classNames(style.container)}>
-					<Messages messages={["message1", "message2", "message3", "message4",]} />
+					<Messages messages={[{message: "message1"}, {message: "message2"}, {message:"message3"}, {message:"message4"}]} />
 				</div>
 			</div>
 
@@ -82,11 +82,11 @@ class Messages extends React.Component {
 	render() {
 
 		var messages = this.props.messages.map(function(message, i) {
-			return <Message message={message.message} sender={1} />;
+			return <Message message={message.message} sender={2} />;
 		});
 
 		return (
-			<div className='Messages'>
+			<div className={classNames(style.Messages)}>
 				{messages}
 			</div>
 		);
@@ -98,16 +98,19 @@ class Message extends React.Component {
 
 	render() {
 		if(this.props.sender === 1) {
-			var classNames = "Message Message--you";
+			return (
+				<div className={classNames(style.Message, style.you)}>
+					<span>{this.props.message}</span>
+				</div>
+			);
 		} else {
-			var classNames = "Message Message--them";
+			return (
+				<div className={classNames(style.Message, style.them)}>
+					<span>{this.props.message}</span>
+				</div>
+			);
 		}
 
-		return (
-			<div className={classNames}>
-				<span>{this.props.message}</span>
-			</div>
-		);
 	}
 
 }

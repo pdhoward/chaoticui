@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import flow from 'lodash/flow';
 import { connect } from 'react-redux';
-import PostWidget from './PostWidget';
+import PostProps from './PostProps';
 import SummaryBoard from './SummaryBoard';
 import SessionName from './SessionName';
 import { getSummaryMode } from '../../selectors';
@@ -15,7 +15,7 @@ const Board = ({ summaryMode }) => (
         <div style={ { width: '100%', textAlign: 'center' } }>
             <SessionName />
         </div>
-        { summaryMode ? <SummaryBoard /> : <PostWidget /> }
+        { summaryMode ? <SummaryBoard /> : <PostProps /> }
     </div>
 );
 

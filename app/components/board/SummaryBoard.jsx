@@ -73,9 +73,9 @@ SummaryBoard.defaultProps = {
     notWellPosts: [],
     ideasPosts: [],
     strings: {
-        notWellQuestion: 'What could be improved?',
-        wellQuestion: 'What went well?',
-        ideasQuestion: 'A brilliant idea to share?',
+        notWellQuestion: '',
+        wellQuestion: 'Please enter message',
+        ideasQuestion: '',
         vote: 'vote',
         votes: 'votes',
         noPosts: 'There are no posts to display'

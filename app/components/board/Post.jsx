@@ -1,5 +1,6 @@
 
 import React, { PropTypes } 		from 'react';
+import ReactDOM 								from 'react-dom';
 import noop 										from 'lodash/noop';
 import classNames 							from 'classnames';
 import translate 								from '../../i18n/Translate';
@@ -12,49 +13,11 @@ const logData = (args) => {
 	console.log(JSON.stringify(args))
 }
 
-const renderState = () => {
-	return {
-		recipient: {
-			id: 2,
-			firstname: 'Patrick',
-			surname: 'Howard',
-			email: 'patrick.howard@xiollc.com'
-		},
-		sender: {
-			id: 1
-		},
-		messages: []
-	}
-}
-
-const handleSubmit = (event) => {
-	var value = $('.messageInput').val();
-	console.log(value);
-
-	var message = {
-		sender: 1,
-		message: value
-	};
-
-	var messages = this.state.messages;
-	messages.push(message);
-
-	this.setState({ messages: messages });
-	this.scrollWindow();
-	$('.messageInput').val("");
-	event.preventDefault();
-}
-
-const scrollWindow = () => {
-		var windowHeight = $('.Messages').height();
-		$(".container").animate({scrollTop : ($(".container")[0].scrollHeight)}, 500);
-}
 
 ////////////////
 // COMPONENTS //
 ////////////////
 
-// Conversation
 
 const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
                       onLike, onUnlike, onEdit }) => (
@@ -64,7 +27,7 @@ const Post = ({ currentUser, posts, type, icon, placeholder, onAdd, onDelete,
 					<Header name={currentUser} />
 				</div>
 				<div className={classNames(style.container)}>
-					<Messages messages={[{message: "message1"}, {message: "message2"}, {message:"message3"}, {message:"message4"}]} />
+					<Messages messages={posts} currentuser={currentUser} />
 				</div>
 			</div>
 
@@ -81,8 +44,10 @@ class Messages extends React.Component {
 
 	render() {
 
+		var sender = 1
+		var viewerID = this.props.currentuser
 		var messages = this.props.messages.map(function(message, i) {
-			return <Message message={message.message} sender={2} />;
+				return <Message message={message.content} user={message.user==viewerID ? 'you' : message.user} sender={message.user==viewerID ? 1 : 2} />;
 		});
 
 		return (
@@ -96,16 +61,29 @@ class Messages extends React.Component {
 
 class Message extends React.Component {
 
+	componentDidMount() {
+     this.textmessage.scrollIntoView();
+   }
+
+
 	render() {
+
 		if(this.props.sender === 1) {
 			return (
-				<div className={classNames(style.Message, style.you)}>
+				<div>
+				<div className={classNames(style.Message, style.ul)} ref={node => this.textmessage = node}>
+					<ul>{this.props.user}</ul>
+				</div>
+				<div className={classNames(style.Message, style.you)} ref={node => this.textmessage = node}>				
 					<span>{this.props.message}</span>
 				</div>
+			</div>
 			);
 		} else {
 			return (
-				<div className={classNames(style.Message, style.them)}>
+				<div className={classNames(style.Message, style.them)} ref={node => this.textmessage = node}>
+					<ul>{this.props.user}</ul>
+					<br></br>
 					<span>{this.props.message}</span>
 				</div>
 			);

@@ -86,37 +86,62 @@ $grey: #C1CFDA;
 					padding-bottom: 20px;
 				}
 
-				span {
-					padding: 10px;
-					box-sizing: border-box;
-					font-size: 12px;
-					display: inline-block;
-					font-weight: 600;
-					max-width: 80%;
-					line-height: 1.4;
-					border-radius: 3px;
-					overflow-wrap: break-word;
-  				word-wrap: break-word;
-					word-break: break-word;
-					-ms-hyphens: auto;
-					-moz-hyphens: auto;
-					-webkit-hyphens: auto;
-					hyphens: auto;
+				ul {
+				font-size: 9px;
+				text-align: right;
 				}
 
 				&.them {
+					ul {
+						font-size: 9px;
+						text-align: left;
+						max-width: 80%;
+					}
+
 					span {
+						padding: 10px;
+						box-sizing: border-box;
+						font-size: 12px;
+						display: inline-block;
+						font-weight: 600;
+						max-width: 80%;
+						line-height: 1.4;
+						border-radius: 3px;
+						overflow-wrap: break-word;
+	  				word-wrap: break-word;
+						word-break: break-word;
+						-ms-hyphens: auto;
+						-moz-hyphens: auto;
+						-webkit-hyphens: auto;
+						hyphens: auto;
 						background: white;
 						box-shadow: 0 5px 10px rgba($black, .05);
 						color: rgba($black, .9);
 					}
+
 				}
 
 				&.you {
+
 					justify-content: flex-end;
 					display: flex;
 
 					span {
+						padding: 10px;
+						box-sizing: border-box;
+						display: inline-block;
+						font-size: 12px;
+						font-weight: 600;
+						max-width: 80%;
+						line-height: 1.4;
+						border-radius: 3px;
+						overflow-wrap: break-word;
+	  				word-wrap: break-word;
+						word-break: break-word;
+						-ms-hyphens: auto;
+						-moz-hyphens: auto;
+						-webkit-hyphens: auto;
+						hyphens: auto;
 						background: darken($blue, 45);
 						color: white;
 					}

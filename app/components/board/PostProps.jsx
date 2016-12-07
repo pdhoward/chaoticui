@@ -103,15 +103,15 @@ PostProps.defaultProps = {
     unlike: noop,
     edit: noop,
     strings: {
-        notWellQuestion: 'What could be improved?',
-        wellQuestion: 'What went well?',
-        ideasQuestion: 'A brilliant idea to share?'
+        notWellQuestion: '',
+        wellQuestion: 'Please enter your message',
+        ideasQuestion: ''
     }
 };
 
 const decorators = flow([
     connect(stateToProps, actionsToProps),
-    translate('PostBoard')
+    translate('PostProps')
 ]);
 
 export default decorators(PostProps);

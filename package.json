@@ -1,7 +1,7 @@
 {
-  "name": "ChaoticChatter",
+  "name": "ChaoticUI",
   "version": "0.7.0",
-  "description": "The training platform for cognitive bots",
+  "description": "The training platform for cognitive bots - This component is the chat UI for group text messaging",
   "main": "server.js",
   "engines": {
     "node": ">=6.0.0",

@@ -2,17 +2,17 @@ import findIndex from 'lodash/findIndex';
 import { LEAVE_SESSION, CREATE_SESSION_SUCCESS, JOIN_SESSION } from './session';
 import { createAction } from 'redux-actions';
 
-export const ADD_POST = 'retrospected/posts/add';
-export const ADD_POST_SUCCESS = 'retrospected/posts/add/success';
-export const RECEIVE_POST = 'retrospected/posts/receive/add';
-export const RECEIVE_BOARD = 'retrospected/posts/receive-all';
-export const RECEIVE_DELETE_POST = 'retrospected/posts/receive/delete';
-export const DELETE_POST = 'retrospected/posts/delete';
-export const LIKE = 'retrospected/posts/like';
-export const LIKE_SUCCESS = 'retrospected/posts/like/success';
-export const RECEIVE_LIKE = 'retrospected/posts/receive/like';
-export const EDIT_POST = 'retrospected/posts/edit';
-export const RECEIVE_EDIT_POST = 'retrospected/posts/receive/edit';
+export const ADD_POST = 'chaotic/posts/add';
+export const ADD_POST_SUCCESS = 'chaotic/posts/add/success';
+export const RECEIVE_POST = 'chaotic/posts/receive/add';
+export const RECEIVE_BOARD = 'chaotic/posts/receive-all';
+export const RECEIVE_DELETE_POST = 'chaotic/posts/receive/delete';
+export const DELETE_POST = 'chaotic/posts/delete';
+export const LIKE = 'chaotic/posts/like';
+export const LIKE_SUCCESS = 'chaotic/posts/like/success';
+export const RECEIVE_LIKE = 'chaotic/posts/receive/like';
+export const EDIT_POST = 'chaotic/posts/edit';
+export const RECEIVE_EDIT_POST = 'chaotic/posts/receive/edit';
 
 const postReducer = (state = {}, action) => {
     switch (action.type) {

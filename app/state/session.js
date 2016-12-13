@@ -1,14 +1,14 @@
 import { createAction } from 'redux-actions';
 
-export const CREATE_SESSION = 'retrospected/session/create';
-export const CREATE_SESSION_SUCCESS = 'retrospected/session/create/success';
-export const RENAME_SESSION = 'retrospected/session/rename';
-export const RECEIVE_SESSION_NAME = 'retrospected/session/receive/rename';
-export const AUTO_JOIN = 'retrospected/session/join/auto';
-export const JOIN_SESSION = 'retrospected/session/join';
-export const LEAVE_SESSION = 'retrospected/session/leave';
-export const RECEIVE_CLIENT_LIST = 'retrospected/session/receive/client-list';
-export const LOAD_PREVIOUS_SESSIONS = 'retrospected/session/load-previous';
+export const CREATE_SESSION = 'chaotic/session/create';
+export const CREATE_SESSION_SUCCESS = 'chaotic/session/create/success';
+export const RENAME_SESSION = 'chaotic/session/rename';
+export const RECEIVE_SESSION_NAME = 'chaotic/session/receive/rename';
+export const AUTO_JOIN = 'chaotic/session/join/auto';
+export const JOIN_SESSION = 'chaotic/session/join';
+export const LEAVE_SESSION = 'chaotic/session/leave';
+export const RECEIVE_CLIENT_LIST = 'chaotic/session/receive/client-list';
+export const LOAD_PREVIOUS_SESSIONS = 'chaotic/session/load-previous';
 
 export default function reducer(state = {
     id: null,

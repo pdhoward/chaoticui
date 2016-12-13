@@ -26,7 +26,7 @@ export default {
         header: 'Участники:'
     },
     Join: {
-        welcome: 'Добро пожаловать в Retrospected',
+        welcome: 'Добро пожаловать в chaotic',
         standardTab: {
             header: 'Новая ретроспектива',
             text: 'Нажмите, чтобы начать:',

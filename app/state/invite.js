@@ -2,7 +2,7 @@ import { createAction } from 'redux-actions';
 import { LEAVE_SESSION, JOIN_SESSION, CREATE_SESSION } from './session';
 import { AUTO_LOGIN, LOGIN, LOGOUT } from './user';
 
-export const TOGGLE_INVITE_DIALOG = 'retrospected/invite/toggle-dialog';
+export const TOGGLE_INVITE_DIALOG = 'chaotic/invite/toggle-dialog';
 
 export default function reducer(state = {
     inviteDialogOpen: false

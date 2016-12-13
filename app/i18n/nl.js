@@ -26,7 +26,7 @@ export default {
         header: 'Onze lieftallige deelnemers:'
     },
     Join: {
-        welcome: 'Welkom bij Retrospected',
+        welcome: 'Welkom bij chaotic',
         standardTab: {
             header: 'Maak een sessie',
             text: 'Klik hieronder en begin terug te denken:',
@@ -50,13 +50,13 @@ export default {
         noPosts: 'Er zijn geen punten om te tonen'
     },
     SessionName: {
-        defaultSessionName: 'Mijn Retrospective'
+        defaultSessionName: 'Mijn Chaotic Training Session'
     },
     Invite: {
         inviteButton: 'Uitnodigen',
         dialog: {
-            title: 'Nodig mensen uit voor jou retrospective',
-            text: 'Stuur de mensen die je wil uitnodigen voor jou retrospected ' +
+            title: 'Nodig mensen uit voor jou Chaotic Training Session',
+            text: 'Stuur de mensen die je wil uitnodigen voor jou chaotic ' +
                   'sessie gewoon de volgende url',
             copyButton: 'Kopieer URL naar klembord'
         }

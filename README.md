@@ -1,7 +1,6 @@
 # ChaoticBot Series
 
 
-
 It features the following technologies:
 
 * [React](https://github.com/facebook/react)

@@ -2,9 +2,9 @@ import { createAction } from 'redux-actions';
 import { LEAVE_SESSION, JOIN_SESSION, CREATE_SESSION } from './session';
 import { AUTO_LOGIN, LOGIN, LOGOUT } from './user';
 
-export const TOGGLE_SUMMARY_MODE = 'retrospected/modes/toggle-summary-mode';
-export const OPEN_DRAWER = 'retrospected/modes/drawer/open';
-export const CLOSE_DRAWER = 'retrospected/modes/drawer/close';
+export const TOGGLE_SUMMARY_MODE = 'chaotic/modes/toggle-summary-mode';
+export const OPEN_DRAWER = 'chaotic/modes/drawer/open';
+export const CLOSE_DRAWER = 'chaotic/modes/drawer/close';
 
 export default function reducer(state = {
     summaryMode: false,

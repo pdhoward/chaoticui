@@ -50,7 +50,7 @@ SessionTile.defaultProps = {
     languageInfo: null,
     onClick: noop,
     strings: {
-        defaultSessionName: 'My Retrospective'
+        defaultSessionName: 'My Chaotic Training Session'
     }
 };
 

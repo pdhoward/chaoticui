@@ -26,7 +26,7 @@ export default {
         header: 'Jelenleg itt van:'
     },
     Join: {
-        welcome: 'Üdv, ez itt a Retrospected',
+        welcome: 'Üdv, ez itt a chaotic',
         standardTab: {
             header: 'Ülés létrehozása',
             text: 'Kattints ide a kezdéshez:',
@@ -50,13 +50,13 @@ export default {
         noPosts: 'There are no posts to display'
     },
     SessionName: {
-        defaultSessionName: 'My Retrospective'
+        defaultSessionName: 'My Chaotic Training Session'
     },
     Invite: {
         inviteButton: 'Invite',
         dialog: {
-            title: 'Invite people to your retrospective',
-            text: 'To invite people to your retrospected session, simply send them ' +
+            title: 'Invite people to your Chaotic Training Session',
+            text: 'To invite people to your chaotic session, simply send them ' +
                   'the following URL',
             copyButton: 'Copy URL to Clipboard'
         }

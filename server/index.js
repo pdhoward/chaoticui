@@ -43,7 +43,7 @@ const b = chalk.blue.bind(chalk);
 const gr = chalk.grey.bind(chalk);
 const r = chalk.red.bind(chalk);
 const y = chalk.yellow.bind(chalk);
-const s = str => b(str.replace('retrospected/', ''));
+const s = str => b(str.replace('chaotic/', ''));
 
 const antiSpam = config.Use_Anti_Spam ? spamFilter : (ip, cb) => cb();
 

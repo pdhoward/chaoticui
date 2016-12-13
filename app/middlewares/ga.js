@@ -10,7 +10,7 @@ export const googleAnalyticsMiddleware = (/* store */) => next => action => {
     const actions = [ADD_POST, JOIN_SESSION, DELETE_POST, LIKE, LOGIN];
 
     if (actions.indexOf(action.type) > -1) {
-        ga.event({ category: 'Action', action: action.type.replace('retrospected/', '') });
+        ga.event({ category: 'Action', action: action.type.replace('chaotic/', '') });
     }
 
     if (action.type === '@@router/LOCATION_CHANGE') {

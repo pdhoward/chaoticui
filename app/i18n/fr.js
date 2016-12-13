@@ -50,13 +50,13 @@ export default {
         noPosts: 'Aucun post à afficher'
     },
     SessionName: {
-        defaultSessionName: 'Ma Retrospective'
+        defaultSessionName: 'Ma Chaotic Training Session'
     },
     Invite: {
         inviteButton: 'Inviter',
         dialog: {
-            title: 'Invitez des participants à votre retrospective',
-            text: 'Pour inviter des participants à votre session retrospected, ' +
+            title: 'Invitez des participants à votre Chaotic Training Session',
+            text: 'Pour inviter des participants à votre session chaotic, ' +
                   'envoyez leur le lien suivant',
             copyButton: 'Copier'
         }

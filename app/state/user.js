@@ -3,12 +3,12 @@
 
 import { createAction }       from 'redux-actions';
 
-export const AUTO_LOGIN = 'retrospected/user/login/auto';
-export const LOGIN = 'retrospected/user/login';
-export const LOGIN_SUCCESS = 'retrospected/user/login/success';
-export const LOGOUT = 'retrospected/user/logout';
-export const CHANGE_LANGUAGE = 'retrospected/user/language/change';
-export const CHANGE_LANGUAGE_SUCCESS = 'retrospected/user/language/change/success';
+export const AUTO_LOGIN = 'chaotic/user/login/auto';
+export const LOGIN = 'chaotic/user/login';
+export const LOGIN_SUCCESS = 'chaotic/user/login/success';
+export const LOGOUT = 'chaotic/user/logout';
+export const CHANGE_LANGUAGE = 'chaotic/user/language/change';
+export const CHANGE_LANGUAGE_SUCCESS = 'chaotic/user/language/change/success';
 
 export default function reducer(state = {
     name: null,

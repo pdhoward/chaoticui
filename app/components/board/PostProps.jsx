@@ -33,12 +33,7 @@ class PostProps extends Component {
     }
 
     componentDidMount(props) {
-      console.log(("--------various parms ---------"))
-      console.log("username = " + this.props.currentUser)
-      console.log("liveposts = " + this.props.livePosts)
-      console.log("icon satisfied = " + icons.sentiment_satisfied)
-      console.log("add action  = " + JSON.stringify(this.props.addPost))
-      console.log("placeholder = " + this.props.strings.liveQuestion)
+      console.log(("--------Entered PostProps---------"))    
     }
 
     render() {

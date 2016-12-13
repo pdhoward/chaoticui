@@ -18,9 +18,9 @@ export default {
         noContent: '(Aucun contenu)'
     },
     PostBoard: {
-        notWellQuestion: 'Des améliorations ?',
-        wellQuestion: 'Qu\'est-ce qui s\'est bien passé ?',
-        ideasQuestion: 'Une bonne idée à partager ?'
+        aiQuestion: 'Des améliorations ?',
+        liveQuestion: 'Qu\'est-ce qui s\'est bien passé ?',
+        trainQuestion: 'Une bonne idée à partager ?'
     },
     Clients: {
         header: 'Nos invités du moment:'

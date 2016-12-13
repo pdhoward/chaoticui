@@ -26,13 +26,13 @@ export const isDrawerOpen = state => state.modes.drawerOpen;
 const getPostsOfType = type => createSelector(getPosts, filterByType(type));
 
 // Combined Selectors
-export const getNotWellPosts = getPostsOfType('notWell');
-export const getWellPosts = getPostsOfType('well');
-export const getIdeasPosts = getPostsOfType('ideas');
+export const getAIPosts = getPostsOfType('AI');
+export const getLivePosts = getPostsOfType('Live');
+export const getTrainPosts = getPostsOfType('Train');
 export const shouldDisplayDrawerButton = createSelector(
     [getCurrentUser, getSessionId], (user, sessionId) => !!user && !!sessionId);
-export const getSortedNotWellPosts = createSelector(getNotWellPosts, sortByVotes);
-export const getSortedWellPosts = createSelector(getWellPosts, sortByVotes);
-export const getSortedIdeasPosts = createSelector(getIdeasPosts, sortByVotes);
+export const getSortedAIPosts = createSelector(getAIPosts, sortByVotes);
+export const getSortedLivePosts = createSelector(getLivePosts, sortByVotes);
+export const getSortedTrainPosts = createSelector(getTrainPosts, sortByVotes);
 export const getSavedSessionsByDate = createSelector(getSavedSessions, sortByLastJoin);
 export const getCurrentLanguageInfo = createSelector(getCurrentLanguage, findLanguageInfo);

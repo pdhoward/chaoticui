@@ -18,9 +18,9 @@ export default {
         noContent: '(This post has no content)'
     },
     PostBoard: {
-        notWellQuestion: 'Mit lehetne jobban csinálni?',
-        wellQuestion: 'Mit ment jól?',
-        ideasQuestion: 'Van valami nagyszerű ötleted?'
+        aiQuestion: 'Mit lehetne jobban csinálni?',
+        liveQuestion: 'Mit ment jól?',
+        trainQuestion: 'Van valami nagyszerű ötleted?'
     },
     Clients: {
         header: 'Jelenleg itt van:'

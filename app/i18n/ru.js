@@ -18,9 +18,9 @@ export default {
         noContent: '(пусто)'
     },
     PostBoard: {
-        notWellQuestion: 'Что можно улучшить?',
-        wellQuestion: 'Что было не так?',
-        ideasQuestion: 'Другие хорошие идеи?'
+        aiQuestion: 'Что можно улучшить?',
+        liveQuestion: 'Что было не так?',
+        trainQuestion: 'Другие хорошие идеи?'
     },
     Clients: {
         header: 'Участники:'

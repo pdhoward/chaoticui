@@ -31,9 +31,9 @@ import { RECEIVE_POST, RECEIVE_BOARD, RECEIVE_DELETE_POST, RECEIVE_LIKE, RECEIVE
 const app = express();
 const httpServer = new http.Server(app);
 const io = socketIo(httpServer);
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 4000;
 const htmlFile = process.env.NODE_ENV === 'production' ?
-    path.resolve(__dirname, '..', 'assets', 'index.html') :
+    path.resolve(__dirname, '..', 'content', 'index.html') :
     path.resolve(__dirname, '..', 'content', 'index.html');
 const assetsFolder = path.resolve(__dirname, '..', 'assets');
 const staticFolder = path.resolve(__dirname, '..', 'static');
@@ -317,12 +317,9 @@ db().then(store => {
         });
     });
 
-
-
      ///////////////////////////////////////////////////
      ////////        MAINLINE Server SetUp      ///////
    ///////////////////////////////////////////////////
-
 
     httpServer.listen(port);
     const env = process.env.NODE_ENV || 'dev';

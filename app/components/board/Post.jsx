@@ -65,6 +65,12 @@ class Message extends React.Component {
      this.textmessage.scrollIntoView();
    }
 
+	 componentWillUpdate(){
+		 console.log(("--------INSIDE POSTJS MESSAGE ---------"))
+		 console.log("username = " + this.props.user)
+		 console.log("liveposts = " + this.props.message)
+	 }
+
 
 	render() {
 
@@ -74,7 +80,7 @@ class Message extends React.Component {
 				<div className={classNames(style.Message, style.ul)} ref={node => this.textmessage = node}>
 					<ul>{this.props.user}</ul>
 				</div>
-				<div className={classNames(style.Message, style.you)} ref={node => this.textmessage = node}>				
+				<div className={classNames(style.Message, style.you)} ref={node => this.textmessage = node}>
 					<span>{this.props.message}</span>
 				</div>
 			</div>
@@ -109,7 +115,7 @@ Post.propTypes = {
 Post.defaultProps = {
 	    currentUser: null,
 	    posts: [],
-	    type: 'well',
+	    type: 'Live',
 	    icon: icons.add_circle,
 	    placeholder: 'New Comment',
 	    onAdd: noop,

@@ -1,3 +1,5 @@
+
+
 import React, { PropTypes, Component } from 'react';
 import noop from 'lodash/noop';
 import flow from 'lodash/flow';
@@ -7,13 +9,13 @@ import { connect } from 'react-redux';
 import { addPost, deletePost, like, unlike, editPost } from '../../state/posts';
 import icons from '../../constants/icons';
 import translate from '../../i18n/Translate';
-import { getWellPosts, getNotWellPosts, getIdeasPosts, getCurrentUser } from '../../selectors';
+import { getLivePosts, getAIPosts, getTrainPosts, getCurrentUser } from '../../selectors';
 
 const stateToProps = state => ({
     currentUser: getCurrentUser(state),
-    wellPosts: getWellPosts(state),
-    notWellPosts: getNotWellPosts(state),
-    ideasPosts: getIdeasPosts(state)
+    livePosts: getLivePosts(state),
+    aiPosts: getAIPosts(state),
+    trainPosts: getTrainPosts(state)
 });
 
 const actionsToProps = dispatch => ({
@@ -25,7 +27,6 @@ const actionsToProps = dispatch => ({
 });
 
 
-
 class PostProps extends Component {
     constructor(props) {
         super(props);
@@ -34,41 +35,41 @@ class PostProps extends Component {
     componentDidMount(props) {
       console.log(("--------various parms ---------"))
       console.log("username = " + this.props.currentUser)
-      console.log("wellposts = " + this.props.wellPosts)
+      console.log("liveposts = " + this.props.livePosts)
       console.log("icon satisfied = " + icons.sentiment_satisfied)
       console.log("add action  = " + JSON.stringify(this.props.addPost))
-      console.log("placeholder = " + this.props.strings.wellQuestion)
+      console.log("placeholder = " + this.props.strings.liveQuestion)
     }
 
     render() {
 
-        const { strings, wellPosts, notWellPosts, ideasPosts } = this.props;
+        const { strings, livePosts, aiPosts, trainPosts } = this.props;
         const types = [{
-            type: 'well',
-            question: strings.wellQuestion,
+            type: 'Live',
+            question: strings.liveQuestion,
             icon: icons.sentiment_satisfied,
-            posts: wellPosts
+            posts: livePosts
         }, {
-            type: 'notWell',
-            question: strings.notWellQuestion,
+            type: 'AI',
+            question: strings.aiQuestion,
             icon: icons.sentiment_very_dissatisfied,
-            posts: notWellPosts
+            posts: aiPosts
         }, {
-            type: 'ideas',
-            question: strings.ideasQuestion,
+            type: 'Train',
+            question: strings.trainQuestion,
             icon: icons.lightbulb_outline,
-            posts: ideasPosts
+            posts: trainPosts
         }];
 
         return (
           <div>
               <PostWidget
                 currentUser={this.props.currentUser}
-                posts={this.props.wellPosts}
-                type={'well'}
+                posts={this.props.livePosts}
+                type={'Live'}
                 icon={icons.sentiment_satisfied}
                 onAdd={this.props.addPost}
-                placeholder={this.props.strings.wellQuestion}
+                placeholder={this.props.strings.liveQuestion}
                 onDelete={this.props.deletePost}
                 onLike={this.props.like}
                 onUnlike={this.props.unlike}
@@ -81,9 +82,9 @@ class PostProps extends Component {
 
 PostProps.propTypes = {
     currentUser: PropTypes.string,
-    wellPosts: PropTypes.array.isRequired,
-    notWellPosts: PropTypes.array.isRequired,
-    ideasPosts: PropTypes.array.isRequired,
+    livePosts: PropTypes.array.isRequired,
+    aiPosts: PropTypes.array.isRequired,
+    trainPosts: PropTypes.array.isRequired,
     addPost: PropTypes.func,
     deletePost: PropTypes.func,
     strings: PropTypes.object,
@@ -94,18 +95,18 @@ PostProps.propTypes = {
 
 PostProps.defaultProps = {
     currentUser: null,
-    wellPosts: [],
-    notWellPosts: [],
-    ideasPosts: [],
+    livePosts: [],
+    aiPosts: [],
+    trainPosts: [],
     addPost: noop,
     deletePost: noop,
     like: noop,
     unlike: noop,
     edit: noop,
     strings: {
-        notWellQuestion: '',
-        wellQuestion: 'Please enter your message',
-        ideasQuestion: ''
+        aiQuestion: '',
+        liveQuestion: 'Please enter your message',
+        trainQuestion: ''
     }
 };
 

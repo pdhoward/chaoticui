@@ -18,9 +18,9 @@ export default {
         noContent: '(Dit bericht heeft geen inhoud)'
     },
     PostBoard: {
-        notWellQuestion: 'Wat kan er beter?',
-        wellQuestion: 'Wat ging goed?',
-        ideasQuestion: 'Een geweldig idee om te delen?'
+        aiQuestion: 'Wat kan er beter?',
+        liveQuestion: 'Wat ging goed?',
+        trainQuestion: 'Een geweldig idee om te delen?'
     },
     Clients: {
         header: 'Onze lieftallige deelnemers:'

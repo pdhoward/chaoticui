@@ -18,9 +18,9 @@ export default {
         noContent: '(This post has no content)'
     },
     PostProps: {
-        notWellQuestion: '',
-        wellQuestion: 'Please enter your message',
-        ideasQuestion: ''
+        aiQuestion: '',
+        liveQuestion: 'Please enter your message',
+        trainQuestion: ''
     },
     Clients: {
         header: 'Kindly joining us right now:'

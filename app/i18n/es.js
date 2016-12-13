@@ -18,9 +18,9 @@ export default {
         noContent: '(Esta publicacion no tiene contenido)'
     },
     PostBoard: {
-        notWellQuestion: 'Qué se podría mejorar?',
-        wellQuestion: 'Qué ha ido bien?',
-        ideasQuestion: 'Una brillante idea que compartir?'
+        aiQuestion: 'Qué se podría mejorar?',
+        liveQuestion: 'Qué ha ido bien?',
+        trainQuestion: 'Una brillante idea que compartir?'
     },
     Clients: {
         header: 'Acompañenos amablemente en este momento:'

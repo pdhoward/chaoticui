@@ -22,8 +22,8 @@ It features the following technologies:
 Clone this repository
 npm i to install the dependencies (Node 4+, NPM 3+)
 Open another terminal (you need two of those)
-npm run start-server on the first terminal to start the server bit
-npm run start-ui on the second terminal, to run live webpack with hot-reload
+1. npm run start-server on the first terminal to start the server bit
+2. npm run start-ui on the second terminal, to run live webpack with hot-reload
 Open your browser on http://localhost:8081
 
 also test the program by executing (after running npm build)
@@ -38,5 +38,3 @@ The apps on different servers will communicate through redis, and share all text
 * `npm run build` to build everything (client and server)
 * `npm start` to run the server on port 8080
 * Open your browser on [http://localhost:8080](http://localhost:8080)
-
-## How to enable SocketIO anti-spam

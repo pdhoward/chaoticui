@@ -18,9 +18,9 @@ export default {
         noContent: '(This post has no content)'
     },
     PostBoard: {
-        notWellQuestion: 'O que poderia ser melhorado?',
-        wellQuestion: 'O que deu certo?',
-        ideasQuestion: 'Compartilhar uma ideia brilhante?'
+        aiQuestion: 'O que poderia ser melhorado?',
+        liveQuestion: 'O que deu certo?',
+        trainQuestion: 'Compartilhar uma ideia brilhante?'
     },
     Clients: {
         header: 'Participando conosco agora:'

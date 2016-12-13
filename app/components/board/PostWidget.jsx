@@ -46,7 +46,7 @@ PostWidget.propTypes = {
 PostWidget.defaultProps = {
     currentUser: null,
     posts: [],
-    type: 'well',
+    type: 'Live',
     icon: icons.add_circle,
     placeholder: 'New Comment',
     onAdd: noop,

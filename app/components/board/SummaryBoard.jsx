@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react';
 import flow from 'lodash/flow';
 import translate from '../../i18n/Translate';
 import { connect } from 'react-redux';
-import { getSortedWellPosts, getSortedNotWellPosts, getSortedIdeasPosts } from '../../selectors';
+import { getSortedLivePosts, getSortedAIPosts, getSortedTrainPosts } from '../../selectors';
 import { Card, CardTitle, CardText } from 'react-toolbox/lib/card';
 import style from './SummaryBoard.scss';
 
 const stateToProps = state => ({
-    wellPosts: getSortedWellPosts(state),
-    notWellPosts: getSortedNotWellPosts(state),
-    ideasPosts: getSortedIdeasPosts(state)
+    livePosts: getSortedLivePosts(state),
+    aiPosts: getSortedNotAIPosts(state),
+    trainPosts: getSortedTrainPosts(state)
 });
 
 class SummaryBoard extends Component {
@@ -42,9 +42,9 @@ class SummaryBoard extends Component {
     }
 
     render() {
-        const { wellPosts, notWellPosts, ideasPosts, strings } = this.props;
+        const { livePosts, aiPosts, trainPosts, strings } = this.props;
 
-        if (!wellPosts.length && !notWellPosts.length && !ideasPosts.length) {
+        if (!livePosts.length && !aiPosts.length && !trainPosts.length) {
             return (
                 <div className={style.summary}>
                     <h4 style={{ textAlign: 'center', marginTop: 50 }}>{strings.noPosts}</h4>
@@ -53,29 +53,29 @@ class SummaryBoard extends Component {
         }
         return (
             <div className={style.summary}>
-                { this.renderType(strings.wellQuestion, style.well, wellPosts) }
-                { this.renderType(strings.notWellQuestion, style.notWell, notWellPosts) }
-                { this.renderType(strings.ideasQuestion, style.ideas, ideasPosts) }
+                { this.renderType(strings.liveQuestion, style.live, livePosts) }
+                { this.renderType(strings.aiQuestion, style.ai, aiPosts) }
+                { this.renderType(strings.trainQuestion, style.train, trainPosts) }
             </div>
         );
     }
 }
 
 SummaryBoard.propTypes = {
-    wellPosts: PropTypes.array.isRequired,
-    notWellPosts: PropTypes.array.isRequired,
-    ideasPosts: PropTypes.array.isRequired,
+    livePosts: PropTypes.array.isRequired,
+    aiPosts: PropTypes.array.isRequired,
+    trainPosts: PropTypes.array.isRequired,
     strings: PropTypes.object
 };
 
 SummaryBoard.defaultProps = {
-    wellPosts: [],
-    notWellPosts: [],
-    ideasPosts: [],
+    livePosts: [],
+    aiPosts: [],
+    trainPosts: [],
     strings: {
-        notWellQuestion: '',
-        wellQuestion: 'Please enter message',
-        ideasQuestion: '',
+        aiQuestion: '',
+        liveQuestion: 'Please enter message',
+        trainQuestion: '',
         vote: 'vote',
         votes: 'votes',
         noPosts: 'There are no posts to display'

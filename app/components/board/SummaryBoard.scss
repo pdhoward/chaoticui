@@ -1,15 +1,15 @@
 div.summary {
 
-    .well {
-        background-color: $color-well;
+    .live {
+        background-color: $color-live;
     }
 
-    .notWell {
-        background-color: $color-notWell;
+    .ai {
+        background-color: $color-ai;
     }
 
-    .ideas {
-        background-color: $color-ideas;
+    .train {
+        background-color: $color-train;
     }
 
     span.subtitle {

@@ -1,14 +1,16 @@
-import { put, select, call } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
-import shortid from 'shortid';
+// note the local storage for capturing ids and previous sessions
+
+import { put, select, call }            from 'redux-saga/effects';
+import { push }                         from 'react-router-redux';
+import shortid                          from 'shortid';
 import { joinSession,
     createSessionSuccess,
     receiveClientList,
     renameSession,
-    loadPreviousSessions } from '../state/session';
+    loadPreviousSessions }              from '../state/session';
 import { getCurrentUser, getSessionId } from '../selectors';
-import ls from 'local-storage';
-import find from 'lodash/find';
+import ls                               from 'local-storage';
+import find                             from 'lodash/find';
 
 export function* storeSessionToLocalStorage(currentUser, sessionId) {
     let savedSessions = ls.get('sessions');

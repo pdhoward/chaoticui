@@ -256,7 +256,9 @@ db().then(store => {
     /////////////////////////////////////////////////////
     ////////        MAINLINE SOCKET ACTIONS      ///////
     ////////////////////////////////////////////////////
-
+    io.on('time', function(msg) {
+        console.log('The time is ' + msg);
+      });
 
     io.on('connection', socket => {
         const ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address.address;
@@ -265,10 +267,10 @@ db().then(store => {
                         r('New user connected'), gr(socket.id), gr(ip));
 
           io.on('time', function (data) {
-                      console.log(data);
+                      console.log("from io " + data);
                   });
           socket.on('time', function (data) {
-                      console.log(data);
+                      console.log("from socket " + data);
                   });
 
             actions.forEach(action => {

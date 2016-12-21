@@ -1,16 +1,15 @@
-/* global __DEVTOOLS__ __USE_GA__ __GA_ID__ */
-/* eslint global-require:0 */
-import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { init } from './middlewares/socketio';
-import { Router, IndexRoute, Route, browserHistory } from 'react-router';
+
+import React                                          from 'react';
+import { Provider }                                   from 'react-redux';
+import configureStore                                 from './store/configureStore';
+import { syncHistoryWithStore }                       from 'react-router-redux';
+import { init }                                       from './middlewares/socketio';
+import { Router, IndexRoute, Route, browserHistory }  from 'react-router';
 import {
     App,
     Main,
     Join
-} from './pages';
+  }                                                   from './pages';
 import './grids.css';
 
 const store = configureStore({}, browserHistory);

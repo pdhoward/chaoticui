@@ -1,7 +1,7 @@
-import { put, call, select } from 'redux-saga/effects';
-import uuid from 'node-uuid';
-import { addPostSuccess, likeSuccess } from '../state/posts';
-import { getCurrentUser } from '../selectors';
+import { put, call, select }            from 'redux-saga/effects';
+import uuid                             from 'node-uuid';
+import { addPostSuccess, likeSuccess }  from '../state/posts';
+import { getCurrentUser }               from '../selectors';
 
 export function* onAddPost(action) {
     const user = yield select(getCurrentUser);
